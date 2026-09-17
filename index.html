@@ -182,9 +182,7 @@ color:#555;
 💗 💕 💖 💕 💗
 </div>
 
-</div>
-
-
+</div
 <script>
 
 let step=1;
@@ -194,61 +192,42 @@ function nextStep(){
 step++;
 
 if(step==2){
-
 heart.innerHTML="🌸";
 title.innerHTML="အဆင့် ၂ 🌸";
-message.innerHTML=
-"မင်းကို ပြောချင်တဲ့<br>စာလေးတစ်ခုရှိတယ် 🤭";
-
+message.innerHTML="မင်းကို ပြောချင်တဲ့<br>စာလေးတစ်ခုရှိတယ် 🤭";
 }
 
 else if(step==3){
-
 heart.innerHTML="💕";
 title.innerHTML="အဆင့် ၃ 💕";
-message.innerHTML=
-"မင်းနဲ့ စကားပြောရတဲ့အချိန်တိုင်း<br>ပျော်မိတယ်။";
-
+message.innerHTML="မင်းနဲ့ စကားပြောရတဲ့အချိန်တိုင်း<br>ပျော်မိတယ်။";
 }
 
 else if(step==4){
-
 heart.innerHTML="💖";
 title.innerHTML="အဆင့် ၄ 💖";
-message.innerHTML=
-"တကယ်တော့…<br>မင်းကို သဘောကျနေမိပြီထင်တယ် 🙈";
-
+message.innerHTML="တကယ်တော့…<br>မင်းကို သဘောကျနေမိပြီထင်တယ် 🙈";
 }
 
 else if(step==5){
-
 heart.innerHTML="🥹";
 title.innerHTML="အဆင့် ၅ 💗";
-message.innerHTML=
-"နောက်ဆုံးတစ်ခုလေးပဲ…<br>မင်းအတွက် သီးသန့်ရေးထားတာပါ 💗";
-
+message.innerHTML="နောက်ဆုံးတစ်ခုလေးပဲ…<br>မင်းအတွက် သီးသန့်ရေးထားတာပါ 💗";
 button.innerHTML="💌 ဖွင့်ကြည့်မယ်";
-
 }
 
 else{
-
 document.getElementById("card").style.display="none";
 document.getElementById("final").style.display="block";
-
 }
 
 document.getElementById("step").innerHTML=step+" / 5";
 
 }
-const final = document.createElement("div");
 
-final.id = "final";
 
-final.style.display = "none";
-final.style.textAlign = "center";
+const final = document.getElementById("final");
 
-final.innerHTML = `
 final.innerHTML = `
 <div id="surpriseHeart" style="font-size:90px;">
 💗
@@ -287,14 +266,13 @@ color:#555;
 💗 💕 💖 💕 💗
 </div>
 `;
-`;
 
-document.body.appendChild(final);
-    function showSurprise(){
+
+function showSurprise(){
 
 document.getElementById("secret").style.display="block";
 
-document.getElementById("surpriseHeart").innerHTML="";
+document.getElementById("surpriseHeart").innerHTML="💖💖💖";
 
 document.getElementById("surpriseHeart").style.transform="scale(1.4)";
 
@@ -302,7 +280,7 @@ for(let i=0;i<15;i++){
 
 let heart=document.createElement("div");
 
-heart.innerHTML=["","","",""][Math.floor(Math.random()*4)];
+heart.innerHTML=["💗","💕","💖","🌸"][Math.floor(Math.random()*4)];
 
 heart.style.position="fixed";
 heart.style.left=Math.random()*100+"%";
@@ -329,8 +307,8 @@ heart.remove();
 
 }
 
-    }
-</script>
+}
 
+</script>
 </body>
 </html> 
