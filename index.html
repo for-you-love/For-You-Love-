@@ -241,7 +241,32 @@ document.getElementById("final").style.display="block";
 document.getElementById("step").innerHTML=step+" / 5";
 
 }
+const final = document.createElement("div");
 
+final.id = "final";
+
+final.style.display = "none";
+final.style.textAlign = "center";
+
+final.innerHTML = `
+<div style="font-size:90px;"></div>
+
+<h1 style="color:#d83f70;">
+မင်းအတွက်ပါ 
+</h1>
+
+<p style="font-size:18px;line-height:2;color:#555;">
+ဒီစာလေးကို ဖတ်ပေးလို့ ကျေးဇူးတင်ပါတယ် <br><br>
+မင်းပြုံးမိခဲ့ရင်<br>
+ငါလည်း ပျော်ပြီ 
+</p>
+
+<div style="font-size:35px;">
+    
+</div>
+`;
+
+document.body.appendChild(final);
 </script>
 
 </body>
