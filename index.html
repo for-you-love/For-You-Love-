@@ -3,126 +3,176 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>For You Love 💗</title>
+<title>For You 💗</title>
 
 <style>
 *{box-sizing:border-box}
 
 body{
- margin:0;
- min-height:100vh;
- display:flex;
- justify-content:center;
- align-items:center;
- font-family:Arial,sans-serif;
- background:linear-gradient(135deg,#ffd6e0,#ffeef3,#ffc4d6);
- overflow:hidden;
+margin:0;
+min-height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+font-family:Arial,sans-serif;
+background:linear-gradient(135deg,#ffd6e5,#fff0f5,#ffc2d6);
+overflow:hidden;
 }
 
 .card{
- width:90%;
- max-width:400px;
- padding:35px 25px;
- text-align:center;
- background:rgba(255,255,255,.82);
- border-radius:28px;
- box-shadow:0 15px 40px rgba(170,70,100,.25);
-}
-
-.big{
- font-size:65px;
- animation:pulse 1.5s infinite;
-}
-
-@keyframes pulse{
- 50%{transform:scale(1.15)}
-}
-
-h1{
- color:#d94b78;
- margin:12px 0;
-}
-
-p{
- color:#555;
- line-height:1.8;
-}
-
-button{
- margin-top:15px;
- padding:13px 28px;
- border:0;
- border-radius:30px;
- background:#e65380;
- color:white;
- font-size:16px;
- font-weight:bold;
-}
-
-#message{
- display:none;
- margin-top:25px;
- color:#c63e68;
- line-height:2;
- font-size:17px;
+width:90%;
+max-width:400px;
+padding:35px 25px;
+text-align:center;
+background:rgba(255,255,255,.88);
+border-radius:30px;
+box-shadow:0 15px 50px rgba(150,50,90,.25);
+z-index:2;
 }
 
 .heart{
- position:fixed;
- bottom:-30px;
- font-size:25px;
- animation:up 6s linear infinite;
+font-size:65px;
+animation:pulse 1.5s infinite;
 }
 
-.h1{left:10%;animation-delay:0s}
-.h2{left:30%;animation-delay:2s}
-.h3{left:55%;animation-delay:4s}
-.h4{left:80%;animation-delay:1s}
+@keyframes pulse{
+50%{transform:scale(1.15)}
+}
 
-@keyframes up{
- 0%{transform:translateY(0);opacity:0}
- 20%{opacity:1}
- 100%{transform:translateY(-110vh);opacity:0}
+h1{
+color:#d94b78;
+font-size:30px;
+margin:15px 0;
+}
+
+.subtitle{
+color:#777;
+line-height:1.8;
+}
+
+button{
+border:0;
+padding:14px 28px;
+margin-top:20px;
+border-radius:30px;
+background:#e65380;
+color:white;
+font-size:16px;
+font-weight:bold;
+box-shadow:0 7px 20px rgba(230,83,128,.3);
+}
+
+#message{
+display:none;
+margin-top:25px;
+color:#c53d68;
+font-size:17px;
+line-height:2;
+}
+
+.next{
+display:none;
+background:#d94b78;
+}
+
+.float{
+position:fixed;
+bottom:-40px;
+font-size:25px;
+animation:float 7s linear infinite;
+}
+
+.f1{left:10%;animation-delay:0s}
+.f2{left:30%;animation-delay:2s}
+.f3{left:55%;animation-delay:4s}
+.f4{left:80%;animation-delay:1s}
+
+@keyframes float{
+0%{
+transform:translateY(0);
+opacity:0;
+}
+20%{opacity:1}
+100%{
+transform:translateY(-110vh);
+opacity:0;
+}
 }
 </style>
 </head>
 
 <body>
 
-<div class="heart h1">💗</div>
-<div class="heart h2">💕</div>
-<div class="heart h3">💖</div>
-<div class="heart h4">💞</div>
+<div class="float f1">💗</div>
+<div class="float f2">💕</div>
+<div class="float f3">💖</div>
+<div class="float f4">🌸</div>
 
 <div class="card">
 
-<div class="big">💗</div>
+<div class="heart">💗</div>
 
-<h1>For You Love</h1>
+<h1>For You</h1>
 
-<p>
-ဒီစာမျက်နှာလေးက<br>
-မင်းအတွက် သီးသန့်လုပ်ထားတာပါ 🌷
+<p class="subtitle">
+ဒီစာမျက်နှာလေးကို<br>
+မင်းအတွက်ပဲ လုပ်ထားတာပါ 🌷
 </p>
 
-<button onclick="showMessage()">
-💌 နှိပ်ကြည့်ပါ
+<button id="openBtn" onclick="openLove()">
+💌 ဖွင့်ကြည့်ပါ
 </button>
 
 <div id="message">
-မင်းနဲ့စကားပြောရတဲ့အချိန်တိုင်း<br>
+
+တကယ်တော့... 🤭<br><br>
+
+မင်းနဲ့ စကားပြောရတဲ့အချိန်တိုင်း<br>
 ငါ့အတွက် ပျော်စရာလေးတစ်ခု ဖြစ်နေတယ်။ 💕<br><br>
 
-တစ်ခုတော့ ပြောချင်တယ်…<br>
-မင်းကို သဘောကျနေမိပြီထင်တယ် 🙈💗
+မင်းမသိသေးတဲ့ အရာတစ်ခုရှိတယ်... 🙈
+
+</div>
+
+<button class="next" id="nextBtn" onclick="showFinal()">
+💗 နောက်တစ်ခုကြည့်မယ်
+</button>
+
+<div id="final" style="display:none">
+
+<br>
+
+မင်းကို သဘောကျနေမိပြီထင်တယ်။ 🥹💗
+
+<br><br>
+
+ဒီစာလေးဖတ်ပြီး<br>
+အနည်းဆုံး ပြုံးမိရင် ငါကျေနပ်ပြီ။ 🌷
+
 </div>
 
 </div>
 
 <script>
-function showMessage(){
- document.getElementById("message").style.display="block";
+
+function openLove(){
+
+document.getElementById("openBtn").style.display="none";
+
+document.getElementById("message").style.display="block";
+
+document.getElementById("nextBtn").style.display="inline-block";
+
 }
+
+function showFinal(){
+
+document.getElementById("nextBtn").style.display="none";
+
+document.getElementById("final").style.display="block";
+
+}
+
 </script>
 
 </body>
