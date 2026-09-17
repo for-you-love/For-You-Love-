@@ -249,32 +249,87 @@ final.style.display = "none";
 final.style.textAlign = "center";
 
 final.innerHTML = `
-<div style="font-size:90px;"></div>
+final.innerHTML = `
+<div id="surpriseHeart" style="font-size:90px;">
+💗
+</div>
 
 <h1 style="color:#d83f70;">
-မင်းအတွက်ပါ 
+မင်းအတွက်ပါ 🌷
 </h1>
+
 <p style="font-size:18px;line-height:2;color:#555;">
-ဒီစာလေးကို ဖတ်ပေးလို့ ကျေးဇူးတင်ပါတယ် 🥹<br><br>
-မင်းပြုံးမိခဲ့ရင်<br>
-ငါလည်း ပျော်ပြီ 💕
+ဒီစာလေးကို ဖတ်ပေးလို့ ကျေးဇူးတင်ပါတယ် 🥹
 </p>
 
-<div style="font-size:35px;margin-top:20px;">
+<button onclick="showSurprise()" style="
+border:0;
+padding:15px 28px;
+border-radius:50px;
+background:#e65380;
+color:white;
+font-size:16px;
+font-weight:bold;
+">
+💌 သီးသန့်စာလေးဖွင့်မယ်
+</button>
+
+<div id="secret" style="
+display:none;
+margin-top:25px;
+font-size:18px;
+line-height:2;
+color:#555;
+">
+မင်းအတွက် ဒီစာမျက်နှာလေးကို<br>
+သီးသန့်လုပ်ထားတာပါ 💕<br><br>
+မင်းပြုံးမိရင် ငါလည်း ပျော်ပြီ 🌷<br><br>
 💗 💕 💖 💕 💗
 </div>
-<p style="font-size:18px;line-height:2;color:#555;">
-ဒီစာလေးကို ဖတ်ပေးလို့ ကျေးဇူးတင်ပါတယ် <br><br>
-မင်းပြုံးမိခဲ့ရင်<br>
-ငါလည်း ပျော်ပြီ 
-</p>
-
-<div style="font-size:35px;">
-    
-</div>
+`;
 `;
 
 document.body.appendChild(final);
+    function showSurprise(){
+
+document.getElementById("secret").style.display="block";
+
+document.getElementById("surpriseHeart").innerHTML="";
+
+document.getElementById("surpriseHeart").style.transform="scale(1.4)";
+
+for(let i=0;i<15;i++){
+
+let heart=document.createElement("div");
+
+heart.innerHTML=["","","",""][Math.floor(Math.random()*4)];
+
+heart.style.position="fixed";
+heart.style.left=Math.random()*100+"%";
+heart.style.bottom="20px";
+heart.style.fontSize="25px";
+heart.style.zIndex="999";
+
+document.body.appendChild(heart);
+
+heart.animate(
+[
+{transform:"translateY(0)",opacity:1},
+{transform:"translateY(-100vh)",opacity:0}
+],
+{
+duration:2500,
+easing:"ease-out"
+}
+);
+
+setTimeout(()=>{
+heart.remove();
+},2500);
+
+}
+
+    }
 </script>
 
 </body>
