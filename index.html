@@ -30,12 +30,6 @@ backdrop-filter:blur(12px);
 border-radius:30px;
 box-shadow:0 20px 60px rgba(150,40,90,.25);
 z-index:10;
-animation:show .7s ease;
-}
-
-@keyframes show{
-from{opacity:0;transform:scale(.85)}
-to{opacity:1;transform:scale(1)}
 }
 
 .heart{
@@ -99,39 +93,17 @@ opacity:0;
 100%{transform:translateY(-115vh);opacity:0}
 }
 
-/* FINAL */
-
-.final{
+#final{
 display:none;
-animation:finalIn 1s ease;
 }
 
-@keyframes finalIn{
-from{
-opacity:0;
-transform:scale(.5);
-}
-to{
-opacity:1;
-transform:scale(1);
-}
-}
-
-.big{
-font-size:90px;
-animation:beat 1.2s infinite;
-}
-
-.final h1{
-font-size:30px;
-}
-
-.final p{
+#secret{
+display:none;
+margin-top:25px;
 font-size:18px;
 line-height:2;
 color:#555;
 }
-
 </style>
 </head>
 
@@ -162,131 +134,140 @@ color:#555;
 </div>
 
 
-<!-- FINAL SCREEN -->
+<div class="card" id="final">
 
-<div class="card final" id="final">
+<div id="surpriseHeart" class="heart">
+💗
+</div>
 
-<div class="big">💗</div>
+<h1>
+မင်းအတွက်ပါ 🌷
+</h1>
 
-<h1>မင်းအတွက်ပါ 🌷</h1>
-
-<p>
+<p class="message">
 ဒီစာလေးကို ဖတ်ပေးလို့<br>
-ကျေးဇူးတင်ပါတယ်။ 🥹<br><br>
+ကျေးဇူးတင်ပါတယ် 🥹<br><br>
 
 မင်းပြုံးမိခဲ့ရင်<br>
 ဒီစာမျက်နှာလေးရဲ့ ရည်ရွယ်ချက် ပြည့်ပါပြီ။ 💕
 </p>
 
-<div style="font-size:35px">
+<button onclick="showSurprise()">
+💌 သီးသန့်စာလေးဖွင့်မယ်
+</button>
+
+<div id="secret">
+
+မင်းအတွက် ဒီစာမျက်နှာလေးကို<br>
+သီးသန့်လုပ်ထားတာပါ 💕<br><br>
+
+မင်းပြုံးမိရင် ငါလည်း ပျော်ပြီ 🌷<br><br>
+
 💗 💕 💖 💕 💗
+
 </div>
 
-</div
+</div>
+
+
 <script>
 
-let step=1;
+let step = 1;
 
 function nextStep(){
 
 step++;
 
-if(step==2){
-heart.innerHTML="🌸";
-title.innerHTML="အဆင့် ၂ 🌸";
-message.innerHTML="မင်းကို ပြောချင်တဲ့<br>စာလေးတစ်ခုရှိတယ် 🤭";
+if(step === 2){
+
+document.getElementById("heart").innerHTML = "🌸";
+
+document.getElementById("title").innerHTML =
+"အဆင့် ၂ 🌸";
+
+document.getElementById("message").innerHTML =
+"မင်းကို ပြောချင်တဲ့<br>စာလေးတစ်ခုရှိတယ် 🤭";
+
 }
 
-else if(step==3){
-heart.innerHTML="💕";
-title.innerHTML="အဆင့် ၃ 💕";
-message.innerHTML="မင်းနဲ့ စကားပြောရတဲ့အချိန်တိုင်း<br>ပျော်မိတယ်။";
+else if(step === 3){
+
+document.getElementById("heart").innerHTML = "💕";
+
+document.getElementById("title").innerHTML =
+"အဆင့် ၃ 💕";
+
+document.getElementById("message").innerHTML =
+"မင်းနဲ့ စကားပြောရတဲ့အချိန်တိုင်း<br>ပျော်မိတယ်။";
+
 }
 
-else if(step==4){
-heart.innerHTML="💖";
-title.innerHTML="အဆင့် ၄ 💖";
-message.innerHTML="တကယ်တော့…<br>မင်းကို သဘောကျနေမိပြီထင်တယ် 🙈";
+else if(step === 4){
+
+document.getElementById("heart").innerHTML = "💖";
+
+document.getElementById("title").innerHTML =
+"အဆင့် ၄ 💖";
+
+document.getElementById("message").innerHTML =
+"တကယ်တော့…<br>မင်းကို သဘောကျနေမိပြီထင်တယ် 🙈";
+
 }
 
-else if(step==5){
-heart.innerHTML="🥹";
-title.innerHTML="အဆင့် ၅ 💗";
-message.innerHTML="နောက်ဆုံးတစ်ခုလေးပဲ…<br>မင်းအတွက် သီးသန့်ရေးထားတာပါ 💗";
-button.innerHTML="💌 ဖွင့်ကြည့်မယ်";
+else if(step === 5){
+
+document.getElementById("heart").innerHTML = "🥹";
+
+document.getElementById("title").innerHTML =
+"အဆင့် ၅ 💗";
+
+document.getElementById("message").innerHTML =
+"နောက်ဆုံးတစ်ခုလေးပဲ…<br>မင်းအတွက် သီးသန့်ရေးထားတာပါ 💗";
+
+document.getElementById("button").innerHTML =
+"💌 ဖွင့်ကြည့်မယ်";
+
 }
 
 else{
-document.getElementById("card").style.display="none";
-document.getElementById("final").style.display="block";
+
+document.getElementById("card").style.display = "none";
+
+document.getElementById("final").style.display = "block";
+
 }
 
-document.getElementById("step").innerHTML=step+" / 5";
+document.getElementById("step").innerHTML =
+step + " / 5";
 
 }
-
-
-const final = document.getElementById("final");
-
-final.innerHTML = `
-<div id="surpriseHeart" style="font-size:90px;">
-💗
-</div>
-
-<h1 style="color:#d83f70;">
-မင်းအတွက်ပါ 🌷
-</h1>
-
-<p style="font-size:18px;line-height:2;color:#555;">
-ဒီစာလေးကို ဖတ်ပေးလို့ ကျေးဇူးတင်ပါတယ် 🥹
-</p>
-
-<button onclick="showSurprise()" style="
-border:0;
-padding:15px 28px;
-border-radius:50px;
-background:#e65380;
-color:white;
-font-size:16px;
-font-weight:bold;
-">
-💌 သီးသန့်စာလေးဖွင့်မယ်
-</button>
-
-<div id="secret" style="
-display:none;
-margin-top:25px;
-font-size:18px;
-line-height:2;
-color:#555;
-">
-မင်းအတွက် ဒီစာမျက်နှာလေးကို<br>
-သီးသန့်လုပ်ထားတာပါ 💕<br><br>
-မင်းပြုံးမိရင် ငါလည်း ပျော်ပြီ 🌷<br><br>
-💗 💕 💖 💕 💗
-</div>
-`;
 
 
 function showSurprise(){
 
-document.getElementById("secret").style.display="block";
+document.getElementById("secret").style.display = "block";
 
-document.getElementById("surpriseHeart").innerHTML="💖💖💖";
+document.getElementById("surpriseHeart").innerHTML =
+"💖💖💖";
 
-document.getElementById("surpriseHeart").style.transform="scale(1.4)";
+for(let i = 0; i < 15; i++){
 
-for(let i=0;i<15;i++){
+let heart = document.createElement("div");
 
-let heart=document.createElement("div");
+heart.innerHTML =
+["💗","💕","💖","🌸"]
+[Math.floor(Math.random() * 4)];
 
-heart.innerHTML=["💗","💕","💖","🌸"][Math.floor(Math.random()*4)];
+heart.style.position = "fixed";
 
-heart.style.position="fixed";
-heart.style.left=Math.random()*100+"%";
-heart.style.bottom="20px";
-heart.style.fontSize="25px";
-heart.style.zIndex="999";
+heart.style.left =
+Math.random() * 100 + "%";
+
+heart.style.bottom = "20px";
+
+heart.style.fontSize = "25px";
+
+heart.style.zIndex = "999";
 
 document.body.appendChild(heart);
 
@@ -301,8 +282,10 @@ easing:"ease-out"
 }
 );
 
-setTimeout(()=>{
+setTimeout(function(){
+
 heart.remove();
+
 },2500);
 
 }
@@ -310,5 +293,6 @@ heart.remove();
 }
 
 </script>
+
 </body>
 </html> 
